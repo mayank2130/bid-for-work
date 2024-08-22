@@ -3,7 +3,7 @@ import Bids from "@/src/components/bids";
 
 const Page = async () => {
   return (
-    <div className="w-full flex-grow flex justify-center items-center p-2">
+    <div className="overflow-y-auto w-full flex-1 px-40">
       <Bids />
     </div>
   );
