@@ -1,10 +1,9 @@
-import NewJobForm from "@repo/ui/components/NewJobForm";
+import NewJobModal from "@repo/ui/components/jobmodal";
 
 const ManageJobsPage = async () => {
-
   return (
     <div className="w-full flex-grow flex justify-center items-center p-2">
-      <NewJobForm />
+      <NewJobModal />
     </div>
   );
 };

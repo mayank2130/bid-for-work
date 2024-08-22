@@ -22,7 +22,11 @@ import { NewJob, newJobSchema } from "@repo/ui/zod/job";
 import { useToast } from "@repo/ui/shadcn/use-toast";
 import { createJob } from "@repo/ui/actions/job";
 
-const NewJobForm = () => {
+type NewJobFormProps = {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const NewJobForm = ({ setOpen }: NewJobFormProps) => {
   const { toast } = useToast();
 
   const form = useForm<NewJob>({
