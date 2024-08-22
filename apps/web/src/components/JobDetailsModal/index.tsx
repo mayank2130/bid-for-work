@@ -44,12 +44,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
         <p className="mb-6">
           <strong>Description:</strong> {selectedJob.description}
         </p>
-        <Button
-          onClick={handleClose}
-          className="px-3 py-1 text-white rounded-md text-sm"
-        >
-          Close
-        </Button>
+        <Button className="px-5 py-1 text-white rounded-md text-sm">Bid</Button>
       </div>
     </div>
   );

@@ -28,7 +28,6 @@ export const createJob = async (data: NewJob): Promise<SAPayload> => {
 
     return { status: "success", message: "Job created Successfully" };
   } catch (error) {
-    console.log(error);
     return { status: "error", message: "Internal Server Error" };
   }
 };
