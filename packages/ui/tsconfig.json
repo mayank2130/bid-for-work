@@ -4,5 +4,5 @@
 		"outDir": "dist"
 	},
 	"exclude": ["node_modules", "dist"],
-	"include": ["shadcn", "icons", "hooks", "components", "types.d.ts"]
+	"include": ["shadcn", "icons", "hooks", "components", "../../apps/web/types.d.ts", "../../apps/web/src/components/jobmodal", "../../apps/web/src/components/NewJobForm.tsx", "../../apps/web/src/components/bids"]
 }

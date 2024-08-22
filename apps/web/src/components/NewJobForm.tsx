@@ -20,7 +20,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { NewJob, newJobSchema } from "@repo/ui/zod/job";
 import { useToast } from "@repo/ui/shadcn/use-toast";
-import { createJob } from "@repo/ui/actions/job";
+import { createJob } from "../actions/job";
 
 type NewJobFormProps = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -84,7 +84,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleFormSubmit)}
-        className="h-fit flex flex-col gap-3 p-4 shadow-xl rounded-md"
+        className="h-fit flex flex-col gap-3 p-4"
       >
         <div className="flex flex-col gap-1">
           <FormField
@@ -232,7 +232,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
           />
         </div>
         <div className="w-full flex justify-end items-center mt-4">
-          <Button type="submit">Create Job</Button>
+          <Button className="bg-slate-950 hover:bg-slate-700 text-white" type="submit">Create</Button>
         </div>
       </form>
     </Form>

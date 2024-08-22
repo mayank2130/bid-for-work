@@ -3,7 +3,7 @@ import { Button } from "@repo/ui/shadcn/button";
 import { Input } from "@repo/ui/shadcn/input";
 import { useToast } from "@repo/ui/shadcn/use-toast";
 import { useState } from "react";
-import { loginUser } from "@repo/ui/actions/user";
+import { loginUser } from "../../../apps/web/src/actions/user";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -47,7 +47,7 @@ const LoginForm = () => {
       title: response.message,
       variant: "default",
     });
-    router.push("/jobs");
+    router.push("/");
     setIsLoading(false);
   };
 

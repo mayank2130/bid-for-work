@@ -1,7 +1,7 @@
 "use server";
 
-import { auth } from "@repo/ui/auth";
-import { SAPayload } from "../types";
+import { auth } from "@/auth";
+import { SAPayload } from "@/types";
 import { NewJob } from "@repo/ui/zod/job";
 import { prisma } from "@repo/ui/lib/db";
 import { Currency, Job } from "@prisma/client";
@@ -9,7 +9,6 @@ import z from "zod";
 
 export const createJob = async (data: NewJob): Promise<SAPayload> => {
   const session = await auth();
-
   if (!session) {
     return { status: "error", message: "Internal Server Error" };
   }

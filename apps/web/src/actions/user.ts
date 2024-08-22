@@ -1,5 +1,5 @@
 "use server";
-import { signIn, signOut } from "@repo/ui/auth";
+import { signIn, signOut } from "@/auth";
 import { userLoginSchema } from "@repo/ui/zod/user";
 import { prisma } from "@repo/ui/lib/db";
 import { LoginAction, SAPayload } from "@/types";

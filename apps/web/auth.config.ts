@@ -1,8 +1,8 @@
 import { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { prisma } from "./lib/db";
+import { prisma } from "@repo/ui/lib/db";
 import bcrypt from "bcryptjs";
-import { userLoginSchema } from "./zod/user";
+import { userLoginSchema } from "@repo/ui/zod/user";
 
 export default {
   providers: [

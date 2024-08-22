@@ -1,4 +1,4 @@
-import NewJobModal from "@repo/ui/components/jobmodal";
+import NewJobModal from "@/src/components/jobmodal";
 
 const ManageJobsPage = async () => {
   return (

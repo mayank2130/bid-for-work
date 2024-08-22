@@ -20,6 +20,6 @@
 		"../../packages/ui/",
 		"../../packages/shared-types",
 		"./components"
-	],
+, "src/actions", "src/components/jobmodal", "src/components/bids"	],
 	"exclude": ["node_modules/"]
 }
