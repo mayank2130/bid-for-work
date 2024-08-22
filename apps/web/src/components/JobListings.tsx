@@ -1,15 +1,50 @@
-import React from 'react';
-import { Briefcase, TrendingUp, DollarSign } from 'lucide-react';
-import { Job } from './bids';
+"use client";
+import { useState, useEffect } from "react";
+import { DollarSign } from "lucide-react";
+import { Job } from "./bids";
+import { Button } from "@repo/ui/shadcn/button";
+import JobDetailsModal from "./JobDetailsModal";
 interface JobListingProps {
-    jobs: Job[];
-  }
-  
-  const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
+  jobs: Job[];
+}
+
+const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setIsAnimating(true);
+      }, 10);
+    }
+  }, [isOpen]);
+
+  const handleOpen = (job: Job) => {
+    setSelectedJob(job);
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsAnimating(false);
+    setTimeout(() => {
+      setIsOpen(false);
+      setSelectedJob(null);
+    }, 300);
+  };
+
   return (
-    <div className="space-y-4">
+    <div className="p-4">
       {jobs.map((job) => (
-        <div key={job.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+        <div
+          key={job.id}
+          className="bg-white rounded-lg shadow-sm border border-gray-200 p-4"
+        >
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0">
               {/* <div className={`w-12 h-12 rounded-lg flex items-center justify-center text-white text-2xl font-bold ${job.logoBackground || 'bg-red-500'}`}>
@@ -44,15 +79,23 @@ interface JobListingProps {
               {/* {job.employeeCount} */}
             </div>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 px-4 ">
             <div className="flex justify-between items-center">
               <div>
                 {/* <h3 className="text-lg font-semibold">{job.position}</h3> */}
-                <p className="text-sm text-gray-600">{job.location} • {job.salary}</p>
+                <p className="text-sm text-gray-600">{job.location}</p>
+                <div className="flex flex-row items-center">
+                  <DollarSign className="w-3 h-3" />
+                  <span className="text-sm text-gray-600">{job.salary}</span>
+                </div>
               </div>
               <div className="space-x-2">
-                <button className="px-3 py-1 border border-gray-300 rounded-md text-sm">Save</button>
-                <button className="px-3 py-1 bg-black text-white rounded-md text-sm">Learn more</button>
+                <Button
+                  onClick={() => handleOpen(job)}
+                  className="px-3 py-1 text-white rounded-md text-sm"
+                >
+                  Place a Bid
+                </Button>
               </div>
             </div>
             <div className="mt-2 flex justify-between text-sm text-gray-500">
@@ -60,14 +103,20 @@ interface JobListingProps {
                 {/* <span className="font-medium text-green-600">{job.recruiterStatus}</span> */}
                 {/* <span> • {job.postedTime}</span> */}
               </div>
-              <div>
-                <button className="mr-2">Report</button>
-                <button>Hide</button>
-              </div>
+              {/* <div>
+                <Button className="mr-2">Report</Button>
+                <Button>Hide</Button>
+              </div> */}
             </div>
           </div>
         </div>
       ))}
+      <JobDetailsModal
+        selectedJob={selectedJob}
+        isOpen={isOpen}
+        isAnimating={isAnimating}
+        handleClose={handleClose}
+      />
     </div>
   );
 };
