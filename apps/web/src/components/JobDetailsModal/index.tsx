@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@repo/ui/shadcn/button";
 import { Bid, Job } from "@/src/utils/types";
 import { getBids } from "@/src/actions/bids";
+import { usePathname, useRouter } from "next/navigation";
 
 interface JobDetailsModalProps {
   selectedJob: Job | null;
@@ -23,6 +24,10 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
 }) => {
   if (!selectedJob) return null;
 
+
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [bids, setBids] = useState<Bid[] | undefined>(undefined);
 
   useEffect(() => {
@@ -32,10 +37,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
   }, [selectedJob]);
 
   const fetchBids = async () => {
-    console.log(selectedJob.id);
     const response = await getBids(selectedJob.id);
-
-    console.log(response);
     if (response.status === "success") {
       const data = response.data
         ? Array.isArray(response.data)
@@ -45,6 +47,15 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
       setBids(data);
     } else {
       setBids(undefined);
+    }
+  };
+
+  const placeBid = () => {
+    if (selectedJob) {
+      const jobDetails = encodeURIComponent(JSON.stringify(selectedJob));
+      router.push(`/bids/${selectedJob.id}?jobDetails=${jobDetails}`, {
+        scroll: false,
+      });
     }
   };
 
@@ -157,7 +168,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
               </p>
 
               <div className="mb-4">
-                <Button className="text-white w-full py-2 rounded-md mb-2">
+                <Button  onClick={placeBid} className="text-white w-full py-2 rounded-md mb-2">
                   Put up a Bid
                 </Button>
               </div>
