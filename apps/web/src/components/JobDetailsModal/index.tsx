@@ -1,11 +1,14 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@repo/ui/shadcn/button";
-import { Job } from "../bids";
+import { Bid, Job } from "@/src/utils/types";
+import { getBids } from "@/src/actions/bids";
 
 interface JobDetailsModalProps {
   selectedJob: Job | null;
   isOpen: boolean;
+  showBids: () => void;
+  isBidsShown: boolean;
   isAnimating: boolean;
   handleClose: () => void;
 }
@@ -13,10 +16,37 @@ interface JobDetailsModalProps {
 const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
   selectedJob,
   isOpen,
+  showBids,
+  isBidsShown,
   isAnimating,
   handleClose,
 }) => {
   if (!selectedJob) return null;
+
+  const [bids, setBids] = useState<Bid[] | undefined>(undefined);
+
+  useEffect(() => {
+    if (selectedJob) {
+      fetchBids();
+    }
+  }, [selectedJob]);
+
+  const fetchBids = async () => {
+    console.log(selectedJob.id);
+    const response = await getBids(selectedJob.id);
+
+    console.log(response);
+    if (response.status === "success") {
+      const data = response.data
+        ? Array.isArray(response.data)
+          ? response.data
+          : [response.data]
+        : undefined;
+      setBids(data);
+    } else {
+      setBids(undefined);
+    }
+  };
 
   return (
     <div
@@ -26,25 +56,138 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
       onClick={handleClose}
     >
       <div
-        className={`bg-white w-full max-w-md p-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`bg-white w-full max-w-4xl p-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isAnimating ? "translate-x-0" : "translate-x-full"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-xl font-bold mb-4">{selectedJob.title}</h2>
-        <p className="mb-2">
-          <strong>Company:</strong> {selectedJob.companyName}
-        </p>
-        <p className="mb-2">
-          <strong>Location:</strong> {selectedJob.location}
-        </p>
-        <p className="mb-2">
-          <strong>Salary:</strong> {selectedJob.salary} {selectedJob.currency}
-        </p>
-        <p className="mb-6">
-          <strong>Description:</strong> {selectedJob.description}
-        </p>
-        <Button className="px-5 py-1 text-white rounded-md text-sm">Bid</Button>
+        <div className="pb-40 flex flex-col h-full overflow-auto scrollbar-hide mb-40">
+          <style jsx global>{`
+            .scrollbar-hide {
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+
+          <div className="flex flex-row gap-12">
+            <div className="">
+              <h3 className="font-bold mb-2">Qualifications:</h3>
+              <ul className="list-disc pl-5 mb-4">
+                <li>
+                  Experience in assembling a team of senior developers with
+                  demonstrated expertise in various tech stacks and other
+                  relevant technologies.
+                </li>
+                <li>
+                  Strong communication skills in English, with the ability to
+                  convey technical concepts to non-technical team members.
+                </li>
+                <li>Ability to work in an agile development environment.</li>
+              </ul>
+
+              <h3 className="font-bold mb-2">Why Partner with Us?</h3>
+              <ul className="list-disc pl-5 mb-4">
+                <li>Work on innovative and impactful projects.</li>
+                <li>Collaborative and supportive work culture.</li>
+                <li>Flexible work arrangements.</li>
+                <li>
+                  Competitive compensation based on experience and project
+                  scope.
+                </li>
+              </ul>
+
+              <p className="mb-4">
+                If your agency possesses the expertise and experience we seek,
+                we would love to hear from you! Please submit your resume,
+                portfolio or website, case studies, and a brief outline of your
+                development team's qualifications.
+              </p>
+
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="font-bold">$ {selectedJob.salary}</p>
+                  <p className="text-sm text-gray-500">Fixed-price</p>
+                </div>
+                <div>
+                  <p className="font-bold">Expert</p>
+                  <p className="text-sm text-gray-500">
+                    I am willing to pay higher rates for the most experienced
+                    freelancers
+                  </p>
+                </div>
+              </div>
+              {isBidsShown ? (
+                <div className="">
+                  {bids?.map((bid) => <div key={bid.id}>{bid.message}</div>)}
+                </div>
+              ) : null}
+
+              {isBidsShown ? null : (
+                <Button onClick={showBids} className="text-white">
+                  View current Bids
+                </Button>
+              )}
+            </div>
+
+            <div className="">
+              <div className="flex justify-between items-center mb-4">
+                <button className="text-2xl">&larr;</button>
+                <a href="#" className="text-green-500 text-sm">
+                  Open job in a new window
+                </a>
+              </div>
+
+              <h1 className="text-2xl font-bold mb-2">
+                {selectedJob.companyName}
+              </h1>
+              <div className="text-sm text-gray-500 mb-4">
+                <span>Posted yesterday</span> &middot; <span>Worldwide</span>
+              </div>
+
+              <p className="text-sm mb-4">
+                Specialized profiles can help you better highlight your
+                expertise when submitting proposals to jobs like these.{" "}
+                <a href="#" className="text-green-500">
+                  Create a specialized profile
+                </a>
+                .
+              </p>
+
+              <div className="mb-4">
+                <Button className="text-white w-full py-2 rounded-md mb-2">
+                  Put up a Bid
+                </Button>
+              </div>
+
+              <div className="text-sm mb-4">
+                <p>Required Connects to submit a proposal: 10</p>
+                <p>Available Connects: 120</p>
+              </div>
+
+              <div className="mb-4">
+                <h2 className="font-bold mb-2">About the client</h2>
+                <p>Payment method not verified</p>
+                <p>Phone number verified</p>
+                <p>India</p>
+                <p>12:13 AM</p>
+                <p>5 jobs posted</p>
+                <p>0% hire rate, 5 open jobs</p>
+                <p>Tech & IT</p>
+                <p>Mid-sized company (10-99 people)</p>
+                <p>Member since Jul 30, 2024</p>
+                <h2 className="font-bold mb-2">Job details</h2>
+                <p className="mb-2">Needs to hire 5 Freelancers</p>
+                <p className="mb-4">
+                  they must be fluent in English and I prefer the developer that
+                  has US accent
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

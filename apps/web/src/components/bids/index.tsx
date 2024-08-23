@@ -3,19 +3,9 @@ import { getJobs } from "@/src/actions/job";
 import React, { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import JobListing from "../JobListings";
+import { Job } from "@/src/utils/types";
 
-export interface Job {
-  id: string;
-  userId: string;
-  title: string;
-  description: string;
-  companyName: string;
-  salary: string;
-  currency: "USD" | "INR";
-  location: string;
-  state: string | null;
-  country: string | null;
-}
+
 
 const Page = () => {
   const [jobs, setJobs] = useState<Job[] | undefined>(undefined);
