@@ -114,7 +114,7 @@ const Navbar = ({ session }: NavbarProps) => {
         ) : null}
       </div>
 
-      <div className="flex justify-center items-center gap-4">
+      <div className="flex justify-center items-center">
         {session && session?.user && (
           <DropdownMenu>
             <DropdownMenuTrigger className="w-[2rem] flex items-center p-[0.2rem]  justify-center h-[2rem]">
