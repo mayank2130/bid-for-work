@@ -232,7 +232,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
           />
         </div>
         <div className="w-full flex justify-end items-center mt-4">
-          <Button className="bg-slate-950 hover:bg-slate-700 text-white" type="submit">Create</Button>
+          <Button className="bg-gray-800 hover:bg-gray-700 text-white" type="submit">Create</Button>
         </div>
       </form>
     </Form>

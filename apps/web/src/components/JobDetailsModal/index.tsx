@@ -147,7 +147,6 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
 
             <div className="">
               <div className="flex justify-between items-center mb-4">
-                <button className="text-2xl">&larr;</button>
                 <a href="#" className="text-green-500 text-sm">
                   Open job in a new window
                 </a>

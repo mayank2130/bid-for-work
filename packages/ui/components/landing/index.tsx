@@ -16,7 +16,7 @@ const Landing = () => {
 
   const { theme, setTheme } = useTheme();
   return (
-    <div className="flex h-screen justify-center items-center gap-2">
+    <div className="flex mt-96 justify-center items-center gap-2">
       <Button onClick={goToBids} variant="default" className="text-white">
         Put up a bid
       </Button>
