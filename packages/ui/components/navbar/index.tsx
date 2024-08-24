@@ -83,7 +83,7 @@ const Navbar = ({ session }: NavbarProps) => {
       <div className=" border border-secondary rounded-full flex p-2 px-4 text-sm justify-center w-fit items-center gap-5 text-gray-500 font-semibold tracking-tighter">
         {navItems.map((item) => {
           return (
-            <link key={item.name} href={item.route}>
+            <Link key={item.name} href={item.route}>
               <p
                 className={cn("cursor-pointer", {
                   "text-foreground": pathName === item.route,
@@ -93,7 +93,7 @@ const Navbar = ({ session }: NavbarProps) => {
               >
                 {item.name}
               </p>
-            </link>
+            </Link>
           );
         })}
         {userRole === "ADMIN" ? (
