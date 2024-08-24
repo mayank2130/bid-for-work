@@ -46,7 +46,7 @@ const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 mt-10">
       {jobs.map((job) => (
         <div className="pb-4">
           <div
