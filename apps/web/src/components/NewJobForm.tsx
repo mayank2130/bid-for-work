@@ -92,7 +92,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-semibold text-gray-800">
+                <FormLabel className="text-sm font-semibold ">
                   Job Title *
                 </FormLabel>
                 <FormControl>
@@ -114,7 +114,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-semibold text-gray-800">
+                <FormLabel className="text-sm font-semibold ">
                   Description *
                 </FormLabel>
                 <FormControl>
@@ -136,7 +136,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
             name="companyName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-semibold text-gray-800">
+                <FormLabel className="text-sm font-semibold ">
                   Company Name *
                 </FormLabel>
                 <FormControl>
@@ -154,7 +154,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
 
         <div className="flex flex-col gap-1">
           <label
-            className="text-sm font-semibold text-gray-800"
+            className="text-sm font-semibold "
             htmlFor="salary"
           >
             Salary *
@@ -208,7 +208,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
             name="location"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-sm font-semibold text-gray-800">
+                <FormLabel className="text-sm font-semibold ">
                   Location *
                 </FormLabel>
                 <Select
