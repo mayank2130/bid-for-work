@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import Image from 'next/image'
+import Image from "next/image";
 import { auth } from "../../../../apps/web/auth";
 import {
   DropdownMenu,
@@ -9,18 +9,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@repo/ui/shadcn/dropdown-menu"
+} from "@repo/ui/shadcn/dropdown-menu";
 import { Icon, LogOut, UserRound } from "lucide-react";
 import UserImage from "@repo/ui/components/UserImage";
-import { Session } from 'next-auth';
-import { cn } from '../../lib/utils';
+import { Session } from "next-auth";
+import { cn } from "../../lib/utils";
 import { usePathname, useRouter } from "next/navigation";
-import { logOutUser } from '../../../../apps/web/src/actions/user';
-import { toast } from '../../shadcn/use-toast';
+import { logOutUser } from "../../../../apps/web/src/actions/user";
+import { toast } from "../../shadcn/use-toast";
 import Link from "next/link";
-import { signOut } from 'next-auth/react';
-import { Button } from '../../shadcn/button';
-import { Icons } from '../Icons';
+import { signOut } from "next-auth/react";
+import { Button } from "../../shadcn/button";
+import { Icons } from "../Icons";
 import { useTheme } from "next-themes";
 
 type NavbarProps = {
@@ -76,7 +76,7 @@ const Navbar = ({ session }: NavbarProps) => {
     <nav className="w-full flex items-center justify-between h-14 border shadow-[0 0 10px hsl(var(--blue) / 1)] border-secondary rounded-lg px-2 transition-all backdrop-blur-lg bg-background">
       <div className="flex justify-center items-center gap-10 ml-2">
         <h3 className="animate-text-gradient text-xl font-bold inline-flex bg-gradient-to-r from-neutral-900 via-slate-500 to-neutral-400 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-100 dark:via-slate-600 dark:to-neutral-400">
-          100xJobs
+          BidforWork
         </h3>
       </div>
 
@@ -103,7 +103,7 @@ const Navbar = ({ session }: NavbarProps) => {
                 "cursor-pointer hover:text-foreground hover:underline",
                 {
                   "text-foreground": pathName === "/jobs/manage",
-                },
+                }
               )}
             >
               Manage
@@ -175,12 +175,17 @@ const Navbar = ({ session }: NavbarProps) => {
           </DropdownMenu>
         )}
 
-        {/* {
-          theme === 'light' ?
-          <Icons.moon onClick={() => setTheme("dark")} className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          :
-          <Icons.sun onClick={() => setTheme("light")} className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-        } */}
+        {theme === "light" ? (
+          <Icons.moon
+            onClick={() => setTheme("dark")}
+            className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+          />
+        ) : (
+          <Icons.sun
+            onClick={() => setTheme("light")}
+            className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+          />
+        )}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon">
@@ -214,4 +219,3 @@ const Navbar = ({ session }: NavbarProps) => {
 };
 
 export default Navbar;
-
