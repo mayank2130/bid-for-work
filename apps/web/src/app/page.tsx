@@ -6,7 +6,7 @@ import React from "react";
 const page = async () => {
   const session = await auth();
   return (
-    <main className="mt-20">
+    <main className=" mt-8">
       <NavBar session={session} />
       <Landing />
     </main>
