@@ -180,7 +180,7 @@ const Navbar = ({ session }: NavbarProps) => {
         {theme === "light" ? (
           <Icons.moon
             onClick={() => setTheme("dark")}
-            className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+            className=" h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
           />
         ) : (
           <Icons.sun
