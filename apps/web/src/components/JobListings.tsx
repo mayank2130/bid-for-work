@@ -50,7 +50,7 @@ const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
         <div className="pb-4">
           <div
             key={job.id}
-            className="rounded-lg shadow-sm border border-gray-200 p-4"
+            className="rounded-lg shadow-sm border-b-2  p-4"
           >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
