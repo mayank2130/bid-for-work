@@ -4,6 +4,7 @@ import { Button } from "@repo/ui/shadcn/button";
 import { Bid, Job } from "@/src/utils/types";
 import { getBids } from "@/src/actions/bids";
 import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 
 interface JobDetailsModalProps {
   selectedJob: Job | null;
@@ -23,7 +24,6 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
   handleClose,
 }) => {
   if (!selectedJob) return null;
-
 
   const router = useRouter();
   const pathname = usePathname();
@@ -59,15 +59,17 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
     }
   };
 
+  const { theme, setTheme } = useTheme();
+
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-50 flex justify-end items-stretch transition-opacity duration-300 ease-in-out ${
+      className={`fixed inset-0 bg-gray-950 bg-opacity-50 flex justify-end items-stretch transition-opacity duration-300 ease-in-out ${
         isOpen ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
       onClick={handleClose}
     >
       <div
-        className={`bg-white w-full max-w-4xl p-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={` ${theme === "light" ? "bg-white": "bg-black"}  w-full max-w-4xl p-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
           isAnimating ? "translate-x-0" : "translate-x-full"
         }`}
         onClick={(e) => e.stopPropagation()}
@@ -168,7 +170,10 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
               </p>
 
               <div className="mb-4">
-                <Button  onClick={placeBid} className="text-white w-full py-2 rounded-md mb-2">
+                <Button
+                  onClick={placeBid}
+                  className="text-white w-full py-2 rounded-md mb-2"
+                >
                   Put up a Bid
                 </Button>
               </div>

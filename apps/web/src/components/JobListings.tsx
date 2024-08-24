@@ -26,7 +26,6 @@ const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
     }
   }, [isOpen]);
 
-  
   const showOnClick = () => {
     setShowBids(true);
   };
@@ -51,7 +50,7 @@ const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
         <div className="pb-4">
           <div
             key={job.id}
-            className="bg-white rounded-lg shadow-sm border border-gray-200 p-4"
+            className="rounded-lg shadow-sm border border-gray-200 p-4"
           >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
@@ -61,7 +60,7 @@ const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
               </div>
               <div className="flex-grow">
                 <h2 className="text-lg font-semibold">{job.companyName}</h2>
-                <p className="text-sm text-gray-600">{job.description}</p>
+                <p className="text-sm ">{job.description}</p>
                 <div className="flex space-x-2 mt-2">
                   {/* {job.activelyHiring && (
                   <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
@@ -91,10 +90,10 @@ const JobListing: React.FC<JobListingProps> = ({ jobs }) => {
               <div className="flex justify-between items-center">
                 <div>
                   {/* <h3 className="text-lg font-semibold">{job.position}</h3> */}
-                  <p className="text-sm text-gray-600">{job.location}</p>
+                  <p className="text-sm ">{job.location}</p>
                   <div className="flex flex-row items-center">
                     <DollarSign className="w-3 h-3" />
-                    <span className="text-sm text-gray-600">{job.salary}</span>
+                    <span className="text-sm ">{job.salary}</span>
                   </div>
                 </div>
                 <div className="space-x-2">
