@@ -7,7 +7,7 @@ const Landing = () => {
   const router = useRouter();
 
   const goToProposal = () => {
-    router.push("/proposal");
+    router.push("/job");
   };
 
   const goToBids = () => {
