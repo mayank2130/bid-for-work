@@ -81,7 +81,7 @@ const LoginForm = () => {
                 <FormControl>
                   <Input
                     {...field}
-                    className="border-gray-400"
+                    className="border-gray-400 text-black"
                     placeholder="Enter your email here"
                   />
                 </FormControl>
@@ -102,7 +102,7 @@ const LoginForm = () => {
                   <Input
                     type="password"
                     {...field}
-                    className="border-gray-400"
+                    className="border-gray-400 text-black"
                     placeholder="Enter password here"
                   />
                 </FormControl>
