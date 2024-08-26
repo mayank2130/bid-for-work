@@ -10,7 +10,7 @@ const AuthLayout = async ({ children }: AuthLayoutProps) => {
     <div className="absolute inset-0 min-h-screen w-full flex flex-col items-center p-4">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           disableTransitionOnChange
         >
 
