@@ -53,13 +53,13 @@ const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <div className="h-fit p-8 bg-white flex flex-col items-start gap-8 rounded-xl shadow-lg border-t border-gray-200">
+      <div className="h-fit p-8 bg-slate-100 flex flex-col items-start gap-8 rounded-xl shadow-lg border-t border-gray-200">
         <div className="w-full flex flex-col justify-center items-center gap-3">
           <h3 className="text-3xl bg-gradient-to-r from-indigo-600 via-violet-500 to-blue-700 bg-clip-text text-transparent font-black">
             BidforWork
           </h3>
           <div className="flex flex-col gap-1 justify-center items-center">
-            <h4 className="text-lg font-medium">Welcome Back</h4>
+            <h4 className="text-lg font-medium text-gray-900">Welcome Back</h4>
             <p className="text-sm text-gray-500 font-medium">
               Please enter your details to sign in
             </p>
