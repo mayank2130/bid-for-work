@@ -29,6 +29,12 @@ export const placeBid = async (data: NewJob): Promise<SAPayload> => {
 };
 
 export async function getBids(jobId: string) {
+  
+  const session = await auth();
+  if (!session) {
+    return { status: "error", message: "Internal Server Error" };
+  }
+
   try {
     const bids = await prisma.bid.findFirst({
       where: {
@@ -48,15 +54,8 @@ export async function getBids(jobId: string) {
       },
     });
 
-    return {
-      status: "success",
-      data: bids,
-    };
- } catch (error) {
-    console.error('Error fetching bids:', error)
-    return {
-      status: 'error',
-      data: [],  // Return an empty array if there's an error
-    }
-  }
+    return {status: "success", data: bids};
+ }  catch (error) {
+  return { status: "error", message: "Internal Server Error", data: [] };
 }
+};
