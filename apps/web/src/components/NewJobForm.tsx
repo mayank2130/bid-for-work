@@ -21,6 +21,7 @@ import { useForm } from "react-hook-form";
 import { NewJob, newJobSchema } from "@repo/ui/zod/job";
 import { useToast } from "@repo/ui/shadcn/use-toast";
 import { createJob } from "../actions/job";
+import { Textarea } from "@repo/ui/shadcn/textarea";
 
 type NewJobFormProps = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -118,10 +119,10 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
                   Description *
                 </FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     {...field}
                     className="w-full border-gray-400"
-                    placeholder="Enter description here"
+                    placeholder="Enter Job description here"
                   />
                 </FormControl>
                 <FormMessage />
