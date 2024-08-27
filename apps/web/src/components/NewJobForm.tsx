@@ -159,7 +159,7 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
             className="text-sm font-semibold "
             htmlFor="salary"
           >
-            Salary *
+            Skills *
           </label>
           <div className="flex justify-center items-center gap-2">
             <SkillSelector />

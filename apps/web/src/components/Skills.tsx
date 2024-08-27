@@ -17,7 +17,6 @@ const initialSkills: Skill[] = [
   { name: 'WordPress' },
   { name: 'Mobile App Design' },
   { name: 'Adobe After Effects' },
-  // Add more skills here
 ];
 
 const SkillSelector: React.FC = () => {
@@ -32,7 +31,8 @@ const SkillSelector: React.FC = () => {
     !selectedSkills.includes(skill.name)
   );
 
-  const handleSkillToggle = (skillName: string) => {
+  const handleSkillToggle = (e: React.MouseEvent, skillName: string) => {
+    e.preventDefault();
     if (selectedSkills.includes(skillName)) {
       setSelectedSkills(prevSelected => prevSelected.filter(name => name !== skillName));
     } else {
@@ -47,12 +47,18 @@ const SkillSelector: React.FC = () => {
     setIsDropdownOpen(true);
   };
 
-  const addCustomSkill = () => {
+  const addCustomSkill = (e: React.MouseEvent) => {
+    e.preventDefault();
     if (searchTerm && !skills.some(skill => skill.name.toLowerCase() === searchTerm.toLowerCase())) {
       const newSkill = { name: searchTerm };
       setSkills(prevSkills => [...prevSkills, newSkill]);
-      handleSkillToggle(searchTerm);
+      handleSkillToggle(e, searchTerm);
     }
+  };
+
+  const clearSearch = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setSearchTerm('');
   };
 
   useEffect(() => {
@@ -68,8 +74,10 @@ const SkillSelector: React.FC = () => {
     };
   }, []);
 
+
   return (
-    <div className="bg-gray-900 text-white p-6 rounded-lg max-w-2xl mx-auto">
+
+    <div className=" text-white w-full p-6 rounded-lg">
       <h2 className="text-2xl mb-4">Search skills or add your own</h2>
       <div className="relative mb-4" ref={dropdownRef}>
         <div className="relative">
@@ -95,7 +103,7 @@ const SkillSelector: React.FC = () => {
             {filteredSkills.map(skill => (
               <button
                 key={skill.name}
-                onClick={() => handleSkillToggle(skill.name)}
+                onClick={(e) => handleSkillToggle(e, skill.name)}
                 className="w-full text-left px-4 py-2 hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
               >
                 {skill.name}
@@ -120,7 +128,7 @@ const SkillSelector: React.FC = () => {
         {selectedSkills.map(skill => (
           <button
             key={skill}
-            onClick={() => handleSkillToggle(skill)}
+            onClick={(e) => handleSkillToggle(e, skill)}
             className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center"
           >
             {skill}
@@ -133,7 +141,7 @@ const SkillSelector: React.FC = () => {
         {skills.slice(0, 9).map(skill => (
           <button
             key={skill.name}
-            onClick={() => handleSkillToggle(skill.name)}
+            onClick={(e) => handleSkillToggle(e, skill.name)}
             className={`px-3 py-1 rounded-full text-sm flex items-center justify-between ${
               selectedSkills.includes(skill.name) ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'
             }`}
