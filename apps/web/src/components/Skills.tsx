@@ -77,8 +77,8 @@ const SkillSelector: React.FC = () => {
 
   return (
 
-    <div className=" text-white w-full p-6 rounded-lg">
-      <h2 className="text-2xl mb-4">Search skills or add your own</h2>
+    <div className=" text-white w-full mt-4 rounded-lg mb-4">
+      <h2 className="text-xl mb-4">Search skills or add your own</h2>
       <div className="relative mb-4" ref={dropdownRef}>
         <div className="relative">
           <input
@@ -122,8 +122,6 @@ const SkillSelector: React.FC = () => {
         )}
       </div>
       <p className="text-sm text-gray-400 mb-4">For the best results, add 3-5 skills</p>
-      
-      <h3 className="text-xl mb-2">Popular skills for Graphic Design</h3>
       <div className="flex flex-wrap gap-2 mb-4">
         {selectedSkills.map(skill => (
           <button
