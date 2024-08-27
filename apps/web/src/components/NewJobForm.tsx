@@ -22,6 +22,7 @@ import { NewJob, newJobSchema } from "@repo/ui/zod/job";
 import { useToast } from "@repo/ui/shadcn/use-toast";
 import { createJob } from "../actions/job";
 import { Textarea } from "@repo/ui/shadcn/textarea";
+import SkillSelector from "./Skills";
 
 type NewJobFormProps = {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -151,6 +152,18 @@ const NewJobForm = ({ setOpen }: NewJobFormProps) => {
               </FormItem>
             )}
           />
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <label
+            className="text-sm font-semibold "
+            htmlFor="salary"
+          >
+            Salary *
+          </label>
+          <div className="flex justify-center items-center gap-2">
+            <SkillSelector />
+          </div>
         </div>
 
         <div className="flex flex-col gap-1">

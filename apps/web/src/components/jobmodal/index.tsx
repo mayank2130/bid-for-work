@@ -38,7 +38,7 @@ const NewJobModal = () => {
         onClick={handleClose}
       >
         <div
-          className={`  ${theme === "light" ? "bg-white" : "bg-black"}  w-full max-w-md p-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
+          className={`  ${theme === "light" ? "bg-white" : "bg-black"}  w-full max-w-4xl p-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
             isAnimating ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
