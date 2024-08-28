@@ -15,12 +15,12 @@ const NewJobModal = () => {
     setIsOpen(true);
     setIsAnimating(true);
   };
-  
+
   const handleClose = () => {
     setIsAnimating(false);
     setTimeout(() => setIsOpen(false), 300);
   };
-  
+
   const { theme, setTheme } = useTheme();
 
   return (
