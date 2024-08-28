@@ -76,7 +76,7 @@ const Navbar = ({ session }: NavbarProps) => {
   return (
     <MaxWidthWrapper>
       <nav
-        className={` ${theme == "dark" ? "bg-[#181b1d]" : "bg-gray-100"} w-full border  rounded-full flex items-center justify-between h-14 shadow-[0 0 10px hsl(var(--blue) / 1)] border-secondary px-2 transition-all backdrop-blur-lg bg-background`}
+        className={`w-full border  rounded-full flex items-center justify-between h-14 shadow-[0 0 10px hsl(var(--blue) / 1)] border-secondary px-2 transition-all backdrop-blur-lg bg-background`}
       >
         <div className="flex justify-center items-center gap-10 ml-2">
           <h3 className="animate-text-gradient text-xl font-bold inline-flex bg-gradient-to-r from-neutral-900 via-slate-500 to-neutral-400 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-100 dark:via-slate-600 dark:to-neutral-400">
