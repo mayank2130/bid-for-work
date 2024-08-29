@@ -212,7 +212,7 @@ const Navbar = ({ session }: NavbarProps) => {
           </DropdownMenu>
           {!session && (
             <Link href="/login">
-              <Button size={"sm"} className="font-medium">
+              <Button size={"sm"} className="mr-2 font-medium">
                 Join Now
               </Button>
             </Link>
