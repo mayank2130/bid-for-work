@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { features } from "@repo/ui/lib/feature";
+import { features, footerSections } from "@repo/ui/lib/feature";
 import PopularServices from "../PopularServices";
 import Hero from "../Hero";
 import ProMembers from "../ProMembers";
+import { Button } from "../../shadcn/button";
+import Footer from "../Footer";
 
 const FreelancePlatform: React.FC = () => {
   return (
@@ -11,10 +13,6 @@ const FreelancePlatform: React.FC = () => {
       <Hero />
       <PopularServices />
       <ProMembers />
-
-      {/* Fiverr Pro section */}
-
-      {/* Make it all happen section */}
       <section className="max-w-6xl mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold mb-8">
           Make it all happen with freelancers
@@ -28,36 +26,9 @@ const FreelancePlatform: React.FC = () => {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <button className="bg-green-500 text-white px-6 py-2 rounded mr-4">
+          <Button className="bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded mr-4">
             Join now
-          </button>
-        </div>
-      </section>
-
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
-          <div className="md:w-1/2 mb-6 md:mb-0">
-            <h3 className="text-xl font-semibold mb-2">fiverr logo maker</h3>
-            <h2 className="text-3xl font-bold mb-4">
-              Make an incredible logo{" "}
-              <span className="text-orange-500">in seconds</span>
-            </h2>
-            <p className="mb-6">
-              Pre-designed by top talent. Just add your touch.
-            </p>
-            <button className="bg-black text-white px-6 py-2 rounded">
-              Try Fiverr Logo Maker
-            </button>
-          </div>
-          <div className="md:w-1/2">
-            <Image
-              src="/logo-maker.jpg"
-              alt="Logo Maker"
-              width={500}
-              height={300}
-              className="rounded-lg"
-            />
-          </div>
+          </Button>
         </div>
       </section>
     </div>
