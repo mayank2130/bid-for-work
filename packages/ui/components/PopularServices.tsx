@@ -6,7 +6,7 @@ import { popularServices } from "../lib/feature";
 const PopularServices: React.FC = () => {
   
   return (
-    <section className="max-w-6xl mx-auto px-4 py-14">
+    <section className="max-w-6xl mx-auto px-4 py-28">
       <h2 className="text-4xl font-bold mb-6">Popular services</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 overflow-x-auto">
         {popularServices.map((service) => (

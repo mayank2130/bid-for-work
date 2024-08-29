@@ -78,7 +78,7 @@ const Navbar = ({ session }: NavbarProps) => {
       <nav
         className={`w-full border  rounded-full flex items-center justify-between h-14 shadow-[0 0 10px hsl(var(--blue) / 1)] border-secondary px-2 transition-all backdrop-blur-lg bg-background`}
       >
-        <div className="flex justify-center items-center gap-10 ml-2">
+        <div className="flex justify-center items-center gap-10 ml-4">
           <h3 className="animate-text-gradient text-xl font-bold inline-flex bg-gradient-to-r from-neutral-900 via-slate-500 to-neutral-400 bg-[200%_auto] bg-clip-text leading-tight text-transparent dark:from-neutral-100 dark:via-slate-600 dark:to-neutral-400">
             BidforWork
           </h3>
@@ -116,7 +116,7 @@ const Navbar = ({ session }: NavbarProps) => {
           ) : null}
         </div>
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center mr-8">
           {session && session?.user && (
             <DropdownMenu>
               <DropdownMenuTrigger className="w-[2rem] flex items-center p-[0.2rem]  justify-center h-[2rem]">
@@ -178,38 +178,6 @@ const Navbar = ({ session }: NavbarProps) => {
               </DropdownMenuContent>
             </DropdownMenu>
           )}
-
-          {theme === "light" ? (
-            <Icons.moon
-              onClick={() => setTheme("dark")}
-              className=" h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-            />
-          ) : (
-            <Icons.sun
-              onClick={() => setTheme("light")}
-              className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-            />
-          )}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Icons.sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Icons.moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                <span className="sr-only">Toggle theme</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setTheme("light")}>
-                Light
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>
-                Dark
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("system")}>
-                System
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
           {!session && (
             <Link href="/login">
               <Button size={"sm"} className="mr-2 font-medium">
