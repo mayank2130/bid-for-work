@@ -3,43 +3,16 @@ import Image from "next/image";
 import { features } from "@repo/ui/lib/feature";
 import PopularServices from "../PopularServices";
 import Hero from "../Hero";
+import ProMembers from "../ProMembers";
 
 const FreelancePlatform: React.FC = () => {
   return (
     <div className=" min-h-screen p-8">
       <Hero />
       <PopularServices />
+      <ProMembers />
 
       {/* Fiverr Pro section */}
-      <section className="bg-mint-100 py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-6 md:mb-0">
-              <h2 className="text-2xl font-bold mb-4">
-                The premium freelance solution for businesses
-              </h2>
-              <ul className="space-y-2">
-                <li>✓ Dedicated hiring experts</li>
-                <li>✓ Satisfaction guarantee</li>
-                <li>✓ Advanced management tools</li>
-                <li>✓ Flexible payment models</li>
-              </ul>
-              <button className="mt-6 bg-black text-white px-6 py-2 rounded">
-                Try Now
-              </button>
-            </div>
-            <div className="md:w-1/2">
-              <Image
-                src="/project-management.jpg"
-                alt="Project Management"
-                width={500}
-                height={300}
-                className="rounded-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Make it all happen section */}
       <section className="max-w-6xl mx-auto px-4 py-12">
