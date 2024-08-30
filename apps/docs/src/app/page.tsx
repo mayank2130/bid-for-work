@@ -1,10 +1,11 @@
-import NavBar from '@repo/ui/components/navbar'
-import React from 'react'
+import { auth } from "../../../web/auth";
+import NavBar from "@repo/ui/components/navbar";
 
-const page = () => {
+const page = async () => {
+  const session = await auth();
   return (
-    <main>
-    <NavBar />
+    <main className="pt-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black">
+      <NavBar session={session} />
   </main>
   )
 }
