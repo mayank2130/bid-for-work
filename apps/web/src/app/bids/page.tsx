@@ -1,5 +1,5 @@
-import { auth } from "@/auth";
-import Bids from "@/src/components/bids";
+import { auth } from "../../auth";
+import Bids from "@/components/bids";
 import NavBar from "@repo/ui/components/navbar";
 
 const Page = async () => {

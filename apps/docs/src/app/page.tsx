@@ -1,4 +1,4 @@
-import { auth } from "../../../web/auth";
+import { auth } from "../../../web/src/auth";
 import NavBar from "@repo/ui/components/navbar";
 
 const page = async () => {

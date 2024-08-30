@@ -1,8 +1,9 @@
 "use server";
-import { signIn, signOut } from "@/auth";
+// @ts-ignore
+import { signIn, signOut } from "../auth";
 import { userLoginSchema } from "@repo/ui/zod/user";
 import { prisma } from "@repo/ui/lib/db";
-import { LoginAction, SAPayload } from "@/types";
+import { LoginAction, SAPayload } from "../../types";
 
 export const loginUser = async (
   credentials: LoginAction,

@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Button } from "@repo/ui/shadcn/button";
-import { Bid, Job } from "@/src/utils/types";
-import { getBids } from "@/src/actions/bids";
+import { Bid, Job } from "@/utils/types";
+import { getBids } from "@/actions/bids";
 import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 

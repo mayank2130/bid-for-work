@@ -1,7 +1,7 @@
 "use server";
 
-import { auth } from "@/auth";
-import { SAPayload } from "@/types";
+import { auth } from "../auth";
+import { SAPayload } from "../../types";
 import {} from "@repo/ui/zod/profile";
 import { prisma } from "@repo/ui/lib/db";
 import { NewJob } from "@repo/ui/zod/job";

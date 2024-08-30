@@ -1,6 +1,6 @@
 "use client";
 
-import { Job } from "@/src/utils/types";
+import { Job } from "@/utils/types";
 import MaxWidthWrapper from "@repo/ui/components/MaxWidthWrapper";
 import { useSearchParams } from "next/navigation";
 

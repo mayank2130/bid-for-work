@@ -1,5 +1,5 @@
-import { auth } from "@/auth";
-import NewJobModal from "@/src/components/jobmodal";
+import { auth } from "../../auth";
+import NewJobModal from "@/components/jobmodal";
 import Navbar from "@repo/ui/components/navbar";
 
 const ManageJobsPage = async () => {

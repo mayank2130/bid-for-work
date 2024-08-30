@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { auth } from "../../../../apps/web/auth";
 import {
   DropdownMenu,
   DropdownMenuContent,

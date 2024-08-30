@@ -1,9 +1,9 @@
 "use client";
-import { getJobs } from "@/src/actions/job";
+import { getJobs } from "@/actions/job";
 import React, { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import JobListing from "../JobListings";
-import { Job } from "@/src/utils/types";
+import { Job } from "@/utils/types";
 
 
 
