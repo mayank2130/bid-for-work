@@ -6,12 +6,4 @@ module.exports = {
     domains: ['fiverr-res.cloudinary.com'],
   },
   basePath: '/docs',
-  async rewrites() {
-    return [
-      {
-        source: '/docs/:path*',
-        destination: '/:path*',
-      },
-    ];
-  },
 };
