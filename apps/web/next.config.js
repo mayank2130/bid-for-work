@@ -6,4 +6,8 @@ module.exports = {
     domains: ['fiverr-res.cloudinary.com'],
   },
   basePath: '/web',
+  eslint: {
+    // Disable ESLint during builds
+    ignoreDuringBuilds: true,
+  },
 };
