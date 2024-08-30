@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo build",
+    "build": "prisma generate && turbo build",
+    "postinstall": "prisma generate",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
