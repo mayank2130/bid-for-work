@@ -2,14 +2,14 @@
   "name": "@repo/ui",
   "version": "0.0.0",
   "private": true,
- "scripts": {
+  "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
     "db:seed": "npx prisma db push & npx prisma db seed",
     "prisma:generate": "prisma generate"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "schema": "./prisma/schema.prisma"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
