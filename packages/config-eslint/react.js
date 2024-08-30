@@ -16,14 +16,10 @@ module.exports = {
     "@vercel/style-guide/eslint/browser",
     "@vercel/style-guide/eslint/typescript",
     "@vercel/style-guide/eslint/react",
-    'next/core-web-vitals',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:jsx-a11y/recommended',
   ].map(require.resolve),
   parserOptions: {
     project,
   },
-  plugins: ['@typescript-eslint', 'jsx-a11y'],
   globals: {
     JSX: true,
   },
@@ -40,9 +36,7 @@ module.exports = {
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js", "**/*.css"],
   // add rules configurations here
   rules: {
-    'jsx-a11y/click-events-have-key-events': 'warn',
-    'jsx-a11y/no-static-element-interactions': 'warn',
-    '@typescript-eslint/no-confusing-void-expression': ['error', { ignoreArrowShorthand: true }],
+    "import/no-default-export": "off",
   },
   overrides: [
     {
