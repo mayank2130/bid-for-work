@@ -84,12 +84,12 @@ const Navbar = ({ session }: NavbarProps) => {
           </h3>
         </div>
 
-        <div className=" flex p-2 px-4 text-sm justify-center w-fit items-center gap-5 text-gray-400 font-semibold tracking-tighter">
+        <div className=" flex p-2 px-4 text-sm justify-center w-fit items-center gap-7 text-gray-400 font-semibold tracking-tighter">
           {navItems.map((item) => {
             return (
               <Link key={item.name} href={item.route}>
                 <p
-                  className={cn("cursor-pointer", {
+                  className={cn("cursor-pointer tracking-wide", {
                     "text-foreground": pathName === item.route,
                     "hover:text-foreground hover:underline":
                       pathName != item.route,
@@ -104,7 +104,7 @@ const Navbar = ({ session }: NavbarProps) => {
             <Link href="/jobs/manage">
               <p
                 className={cn(
-                  "cursor-pointer hover:text-foreground hover:underline",
+                  "cursor-pointer hover:text-foreground hover:underline tracking-wide",
                   {
                     "text-foreground": pathName === "/jobs/manage",
                   }
