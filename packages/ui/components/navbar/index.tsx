@@ -84,7 +84,7 @@ const Navbar = ({ session }: NavbarProps) => {
           </h3>
         </div>
 
-        <div className=" flex p-2 px-4 text-sm justify-center w-fit items-center gap-5 text-gray-500 font-semibold tracking-tighter">
+        <div className=" flex p-2 px-4 text-sm justify-center w-fit items-center gap-5 text-gray-400 font-semibold tracking-tighter">
           {navItems.map((item) => {
             return (
               <Link key={item.name} href={item.route}>

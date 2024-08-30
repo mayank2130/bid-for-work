@@ -30,7 +30,7 @@ const BidsPage = ({ params }: { params: { bidId: string } }) => {
   ];
 
   return (
-    <div className="bg-black text-white p-6 h-screen">
+    <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black text-white p-6 h-screen">
       <MaxWidthWrapper>
         <h1 className="text-3xl font-bold mb-6">Submit a proposal</h1>
 

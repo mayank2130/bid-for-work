@@ -22,9 +22,8 @@ const Hero = () => {
         <div className="flex items-left flex-col justify-center">
           <h1 className="text-5xl font-bold mb-4 mt-16 max-w-2xl tracking-wide">
             Find best people through a{" "}
-            <span className="text-blue-600">
-              bidding process for your projects.
-            </span>
+            <span className="text-blue-500">bidding process </span>
+            for your <span className="text-blue-500">projects.</span>
           </h1>
           <h2 className="text-2xl font-medium mt-5">
             Find people with lowest{" "}

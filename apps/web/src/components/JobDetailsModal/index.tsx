@@ -63,7 +63,7 @@ const JobDetailsModal: React.FC<JobDetailsModalProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 bg-gray-950 bg-opacity-50 flex justify-end items-stretch transition-opacity duration-300 ease-in-out ${
+      className={`fixed inset-0 bg-opacity-50 flex justify-end items-stretch transition-opacity duration-300 ease-in-out ${
         isOpen ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
       onClick={handleClose}
