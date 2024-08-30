@@ -5,4 +5,13 @@ module.exports = {
   images: {
     domains: ['fiverr-res.cloudinary.com'],
   },
+  basePath: '/web',
+  async rewrites() {
+    return [
+      {
+        source: '/web/:path*',
+        destination: '/:path*',
+      },
+    ];
+  },
 };
