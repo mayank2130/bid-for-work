@@ -21,7 +21,7 @@ const NewJobModal = () => {
     setTimeout(() => setIsOpen(false), 300);
   };
 
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <>
